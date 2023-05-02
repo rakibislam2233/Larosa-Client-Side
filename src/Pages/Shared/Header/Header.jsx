@@ -1,8 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { UserContext } from '../../../Context/AuthProvider/AuthProvider';
 const Header = () => {
+  const {user,logOut} = useContext(UserContext)
+  console.log(user?.photoURL);
   const [show, setShow] = useState(false);
+  const handelLogout = ()=>{
+    logOut()
+    .then(()=>{
+
+    })
+    .catch((err)=>{
+      console.log(err.message)
+    })
+  }
   return (
     <nav className="w-full bg-[#212428]  fixed t z-50  text-white py-5 h-20 px-5">
       <div className="max-w-6xl mx-auto  flex justify-between items-center font-bodyFont">
@@ -24,6 +36,12 @@ const Header = () => {
           <NavLink className={'hover:text-rose-600 duration-300'} to='/blogs'>Blogs</NavLink>
           <NavLink className={'hover:text-rose-600 duration-300'} to="/contact">Contact</NavLink>
           <NavLink className={'hover:text-rose-600 duration-300'} to="/login">Sign In/Up</NavLink>
+         {
+          user? <>
+          <img  className='w-12 h-12 rounded-full ring-2 cursor-pointer ring-teal-500 ' src={user.photoUR} alt="" />
+          <button onClick={handelLogout} className='py-2 px-5 bg-teal-500 rounded-full'>Log out</button>
+          </> : <Link to={'/login'}><button className='py-2 px-5 bg-teal-500 rounded-full'>Login</button></Link>
+         }
         </ul>
         <>
           <button

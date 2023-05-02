@@ -2,18 +2,14 @@ import React, {useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsFacebook, BsGoogle,BsEyeFill,BsEyeSlashFill} from "react-icons/bs";
 import { UserContext } from "../../../Context/AuthProvider/AuthProvider";
-// import { UserContext } from "../../Providers/AuthProvider";
+import toast, { Toaster } from 'react-hot-toast';
 const Login = () => {
-  // const {signIn} = useContext(UserContext);
-    const {user} = useContext(UserContext);
-    console.log(user);
+    const {signIn} = useContext(UserContext);
     const [showPassword,setShowPassword] = useState(false);
     const [error,setError] = useState('');
     const location = useLocation();
     const naviget = useNavigate()
-    console.log(location);
     const from = location?.state?.from.pathname || '/';
-    console.log(from);
     const handelLogin = (e)=>{
         e.preventDefault()
         const form = e.target;
@@ -24,16 +20,17 @@ const Login = () => {
         if (!/[A-Za-z\d@$!%*?&]{8,}/.test(password)) {
             setError('Password must be at least 8 characters long and can only contain uppercase letters, lowercase letters, digits, and special characters');
         }
-        // signIn(email,password)
-        // .then(result=>{
-        //   const users = result.user;
-        //   console.log(users);
-        //   naviget(from,{replace:true})
-        //   from.reset()
-        // })
-        // .catch(err=>{
-        //   console.log(err.message);
-        // })
+        signIn(email,password)
+        .then(result=>{
+          const users = result.user;
+          console.log(users);
+          naviget(from,{replace:true})
+          toast.success('Loging Successfully');
+          from.reset()
+        })
+        .catch(err=>{
+          setError(err.message);
+        })
     }
   return (
     <div className="w-full  pt-20 flex justify-center p-5">

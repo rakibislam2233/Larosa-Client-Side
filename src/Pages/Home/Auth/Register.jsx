@@ -1,13 +1,15 @@
-import React, {  useState } from "react";
-import { Link } from "react-router-dom";
+import React, {  useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { BsFacebook, BsGoogle,BsEyeFill,BsEyeSlashFill} from "react-icons/bs";
+import toast, { Toaster } from 'react-hot-toast';
 import { FaUser } from "react-icons/fa";
-// import { UserContext } from "../../Providers/AuthProvider";
-// import { updateProfile } from "firebase/auth";
+import { updateProfile } from "firebase/auth";
+import { UserContext } from "../../../Context/AuthProvider/AuthProvider";
 const Register = () => {
-    // const {createUser} = useContext(UserContext);
+    const {createUser} = useContext(UserContext)
     const [showPassword,setShowPassword] = useState(false);
     const [error,setError] = useState('');
+    const naviget = useNavigate()
     const handelRegister = (e)=>{
         e.preventDefault();
         const form = e.target;
@@ -18,23 +20,26 @@ const Register = () => {
         const confirmPassword = form.Confirmpassword.value;
         setError('')
         if(password!==confirmPassword){
-            setError('Password Not Matched')
+           return setError('Password Not Matched')
         }
        else if (!/[A-Za-z\d@$!%*?&]{8,}/.test(password)) {
           return  setError('Password must be at least 8 characters long and can only contain uppercase letters, lowercase letters, digits, and special characters');
         }
-        // createUser(email,password)
-        // .then(result=>{
-        //   const users = result.user;
-        //   console.log(users);
-        //   from.reset()
-        //   updateUserInfo(users, name, photoUrl);
-        // })
-        // .catch(err =>{
-        //   console.log(err.message)
-        // })
+        createUser(email,password)
+        .then(result=>{
+          const users = result.user;
+          console.log(users);
+          updateUserInfo(users, name, photoUrl);
+          toast.success('Your Register Successfully')
+          naviget('/login')
+          form.reset()
+        })
+        .catch(err =>{
+          setError(err.message)
+        })
     }
     const updateUserInfo = (user,name,photoUrl)=>{
+      console.log(user);
       updateProfile(user,{
         displayName:name,
         photoURL:photoUrl
@@ -43,7 +48,7 @@ const Register = () => {
 
       })
       .catch(err=>{
-        console.log(err.message);
+        setError(err.message);
       })
     }
   return (
@@ -62,6 +67,7 @@ const Register = () => {
               type="text"
               name="name"
               placeholder="Enter Your Name"
+              required
             />
           </div>
           <div className="flex items-center bg-white rounded  mb-4">
@@ -79,6 +85,7 @@ const Register = () => {
               type="email"
               name="email"
               placeholder="Enter Your Email"
+              required
             />
           </div>
           <div className="flex items-center bg-white rounded  mb-4">
@@ -120,6 +127,7 @@ const Register = () => {
               type={`${showPassword?"text":"password"}`}
               name="password"
               placeholder="Password"
+              required
             />
           </div>
           <div className="flex items-center bg-white rounded  mb-4 relative">
@@ -137,6 +145,7 @@ const Register = () => {
               type={`${showPassword?"text":"password"}`}
               name="Confirmpassword"
               placeholder="Confirm Password"
+              required
             />
           </div>
           <div className="absolute top-[205px] cursor-pointer right-5">
@@ -156,10 +165,10 @@ const Register = () => {
           </button>
           <div className="text-center  py-2">
             <h2>
-              Already have an accoutn? Please{" "}
+              Already have an accoutn? Please
               <Link className="text-amber-500" to="/login">
                 Login
-              </Link>{" "}
+              </Link>
             </h2>
           </div>
           <div className="text-center flex justify-center items-center gap-3">
