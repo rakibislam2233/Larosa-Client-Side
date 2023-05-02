@@ -11,6 +11,8 @@ import Menu from "../Pages/Home/Menu/Menu";
 import Gallery from "../Pages/Home/Gallery/Gallery";
 import Blogs from "../Pages/Home/Blogs/Blogs";
 import SingleChef from "../Pages/Home/SingleChef/SingleChef";
+import Login from "../Pages/Home/Auth/Login";
+import Register from "../Pages/Home/Auth/Register";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -43,6 +45,14 @@ const router = createBrowserRouter([
         {
             path:'/contact',
             element:<Contact></Contact>
+        },
+        {
+          path:'/login',
+          element:<Login></Login>
+        },
+        {
+          path:'/register',
+          element:<Register></Register>
         },
         {
           path:'/chefDetails/:id',
