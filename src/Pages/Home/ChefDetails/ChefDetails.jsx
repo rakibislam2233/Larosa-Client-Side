@@ -12,7 +12,7 @@ const ChefDetails = ({data}) => {
             <p>Number of Recipes : {num_recipes}</p>
             <p>Total Likes : {likes}</p>
            </div>
-           <Link to={`/chefDetails/${id}`}><button className='py-2 px-5 bg-teal-500 rounded-full'>View Recipes</button></Link>
+           <Link to={`/chefDetails/${id}`}><button className='py-2 px-5 bg-teal-500 rounded-full hover:bg-rose-500 duration-300 mx-2'>View Recipes</button></Link>
         </div>
     );
 };

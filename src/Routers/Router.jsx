@@ -10,6 +10,7 @@ import About from "../Pages/Home/About/About";
 import Menu from "../Pages/Home/Menu/Menu";
 import Gallery from "../Pages/Home/Gallery/Gallery";
 import Blogs from "../Pages/Home/Blogs/Blogs";
+import SingleChef from "../Pages/Home/SingleChef/SingleChef";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -43,7 +44,11 @@ const router = createBrowserRouter([
             path:'/contact',
             element:<Contact></Contact>
         },
-
+        {
+          path:'/chefDetails/:id',
+          element:<SingleChef></SingleChef>,
+          loader:({params}) => fetch(`http://localhost:5000/chefDetails/${params.id}`)
+        }
       ]
     },
   ]);
