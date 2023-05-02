@@ -2,13 +2,13 @@ import React from "react";
 import images from '../../../assets/images/chef/download.png'
 const About = () => {
   return (
-    <div className="w-full  bg-gray-900 pt-24">
+    <div className="w-full bg-[#212428]  pt-24 p-5">
       <h2 className="text-4xl text-center font-semibold text-teal-500">About Us</h2>
-      <div className="w-full h-full max-w-6xl mx-auto flex justify-between items-center">
-      <div className="w-[50%]">
+      <div className="w-full h-full max-w-6xl mx-auto md:flex justify-between items-center">
+      <div className="md:w-[50%]">
             <img className="w-full h-fullrounded-full" src={images} alt="" />
         </div>
-        <div className="md:w-[50%] space-y-3">
+        <div className="md:md:w-[50%] space-y-3">
           <h1 className="text-5xl text-white">Our philosophy</h1>
           <p className="text-xl text-gray-600">
             Welcome to the wonderful world of beets! I am delighted you are

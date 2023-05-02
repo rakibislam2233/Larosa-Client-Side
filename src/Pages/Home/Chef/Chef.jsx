@@ -10,9 +10,9 @@ const Chef = () => {
     },[])
     console.log(datas);
     return (
-        <div className='w-full  pt-24 bg-gray-900'>
-            <h3 className='text-4xl text-center font-semibold text-teal-500'>Our Chef</h3>
-            <div>
+        <div className='w-full  pt-24 bg-[#212428]  py-5'>
+            <h3 className='text-4xl text-center font-semibold text-teal-500 pb-20'>Our Chef</h3>
+            <div className='w-full max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-5 p-5'>
                 {
                     datas.map(data=><ChefDetails key={data.id} data={data}></ChefDetails>)
                 }

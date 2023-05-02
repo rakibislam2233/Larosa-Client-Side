@@ -4,7 +4,7 @@ import { HiMenuAlt3, HiX } from "react-icons/hi";
 const Header = () => {
   const [show, setShow] = useState(false);
   return (
-    <nav className="w-full bg-gray-900 fixed t z-50  text-white py-5 h-20 px-5">
+    <nav className="w-full bg-[#212428]  fixed t z-50  text-white py-5 h-20 px-5">
       <div className="max-w-6xl mx-auto  flex justify-between items-center font-bodyFont">
         <div>
           <h3
@@ -12,7 +12,7 @@ const Header = () => {
           >La<span>Rosa</span></h3>
         </div>
         <ul
-          className={`w-[75%] h-[100vh] md:w-auto md:h-auto bg-[#212428] md:bg-transparent text-center text-white  font-semibold  md:duration-0  flex flex-col md:flex-row gap-5 absolute md:static  items-center ${
+          className={`w-[75%] h-[100vh] md:w-auto md:h-auto bg-[#212428] md:bg-transparent text-center text-white  font-semibold  duration-200 md:duration-0  flex flex-col md:flex-row gap-5 absolute md:static  items-center ${
             show ? "top-[90px] space-y-1 left-0 " : "top-[90px]  left-[-500px]"
           }`}
         >
