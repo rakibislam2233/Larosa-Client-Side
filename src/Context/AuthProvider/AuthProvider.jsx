@@ -1,28 +1,37 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../../Utils/Firebase/Firebase.config';
-
 const auth = getAuth(app);
 export const UserContext = createContext(null)
 const AuthProvider = ({children}) => {
     const [user,setUser]=  useState(null);
-    const [loading,setLoaging] = useState(true);
+    const [loading,setLoading] = useState(true);
+    const Googleprovider = new GoogleAuthProvider();
+    /**This is a create user function  */
     const createUser = (email,password)=>{
         return createUserWithEmailAndPassword(auth,email,password)
     }
+     /**This is a login function  */
     const signIn = (email,password)=>{
         return signInWithEmailAndPassword(auth,email,password)
     }
+     /**This is a google singin in  function  */
     const googleSignIn = ()=>{
-       return signInWithPopup(auth)
+       return signInWithPopup(auth,Googleprovider)
     }
+    /**This is a github singin in  function  */
+    const githubSignIn = (githubProvider)=>{
+        return signInWithPopup()
+    }
+
+     /**This is a logout function  */
     const logOut = ()=>{
         return signOut(auth)
     }
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth,loggedUser=>{
             setUser(loggedUser)
-            setLoaging(false)
+            setLoading(false)
         })
         return()=>{
             return unsubscribe()

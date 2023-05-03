@@ -6,7 +6,6 @@ const SingleChef = () => {
   const recipe = useLoaderData();
   const { id, name,description, picture, years_of_experience, num_recipes,likes,recipes } =
     recipe;
-    console.log(recipes);
   return (
     <div className="w-full  bg-[#212428] pt-24 p-5 text-slate-300">
       <div className="w-full h-full max-w-6xl mx-auto">
@@ -15,8 +14,8 @@ const SingleChef = () => {
           <div className="text-center w-[50%] mx-auto">
             <h3 className="text-3xl">{name}</h3>
             <h3>{description}</h3>
-            <h2 className="text-xl">Years of experience : {years_of_experience}</h2>
-            <p className="text-xl">Number of Recipes : {num_recipes}</p>
+            <h2 className="text-xl">Years of experience : {years_of_experience} Years</h2>
+            <p className="text-xl">Number of Recipes : {num_recipes} Item</p>
             <p className="text-xl">Total Likes : {likes}</p>
           </div>
         </div>
@@ -24,7 +23,7 @@ const SingleChef = () => {
            <h3 className="text-center text-3xl font-semibold py-5">My Recipes</h3>
            <div className="w-full grid lg:grid-cols-2 gap-5">
            {
-                recipes.map(rp=><Recipes key={recipe.id} rp={rp}></Recipes>)
+                recipes.map((rp,index)=><Recipes key={index} rp={rp}></Recipes>)
             }
            </div>
         </div>

@@ -1,56 +1,67 @@
-import React, {  useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { BsFacebook, BsGoogle,BsEyeFill,BsEyeSlashFill} from "react-icons/bs";
-import toast, { Toaster } from 'react-hot-toast';
+import { BsGithub, BsGoogle, BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
+import toast, { Toaster } from "react-hot-toast";
 import { FaUser } from "react-icons/fa";
-import { updateProfile } from "firebase/auth";
+import {updateProfile } from "firebase/auth";
 import { UserContext } from "../../../Context/AuthProvider/AuthProvider";
 const Register = () => {
-    const {createUser} = useContext(UserContext)
-    const [showPassword,setShowPassword] = useState(false);
-    const [error,setError] = useState('');
-    const naviget = useNavigate()
-    const handelRegister = (e)=>{
-        e.preventDefault();
-        const form = e.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const photoUrl = form.photoUrl.value;
-        const password = form.password.value;
-        const confirmPassword = form.Confirmpassword.value;
-        setError('')
-        if(password!==confirmPassword){
-           return setError('Password Not Matched')
-        }
-       else if (!/[A-Za-z\d@$!%*?&]{8,}/.test(password)) {
-          return  setError('Password must be at least 8 characters long and can only contain uppercase letters, lowercase letters, digits, and special characters');
-        }
-        createUser(email,password)
-        .then(result=>{
-          const users = result.user;
-          console.log(users);
-          updateUserInfo(users, name, photoUrl);
-          toast.success('Your Register Successfully')
-          naviget('/login')
-          form.reset()
-        })
-        .catch(err =>{
-          setError(err.message)
-        })
+  const { createUser, googleSignIn } = useContext(UserContext);
+  console.log(googleSignIn);
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const naviget = useNavigate();
+  /**This is a create new user function   */
+  const handelRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photoUrl = form.photoUrl.value;
+    const password = form.password.value;
+    const confirmPassword = form.Confirmpassword.value;
+    setError("");
+    if (password !== confirmPassword) {
+      return setError("Password Not Matched");
+    } else if (!/[A-Za-z\d@$!%*?&]{8,}/.test(password)) {
+      return setError(
+        "Password must be at least 8 characters long and can only contain uppercase letters, lowercase letters, digits, and special characters"
+      );
     }
-    const updateUserInfo = (user,name,photoUrl)=>{
-      console.log(user);
-      updateProfile(user,{
-        displayName:name,
-        photoURL:photoUrl
+    createUser(email, password)
+      .then((result) => {
+        const users = result.user;
+        console.log(users);
+        updateUserInfo(users, name, photoUrl);
+        toast.success("Your Register Successfully");
+        naviget("/login");
+        form.reset();
       })
-      .then(()=>{
-
-      })
-      .catch(err=>{
+      .catch((err) => {
         setError(err.message);
-      })
-    }
+      });
+  };
+  const signInGoogle = () => {
+    googleSignIn()
+    .then((result) => {
+      const user = result.user;
+      console.log(user);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    })
+  };
+  const updateUserInfo = (user, name, photoUrl) => {
+    console.log(user);
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photoUrl,
+    })
+      .then(() => {})
+      .catch((err) => {
+        setError(err.message);
+      });
+  };
   return (
     <div className="w-full  pt-20  flex justify-center p-5">
       <div className="w-full lg:w-[30%] bg-gray-200 mt-4 pb-5 rounded">
@@ -124,7 +135,7 @@ const Register = () => {
             </span>
             <input
               className="w-full h-12 focus:outline-none"
-              type={`${showPassword?"text":"password"}`}
+              type={`${showPassword ? "text" : "password"}`}
               name="password"
               placeholder="Password"
               required
@@ -142,20 +153,29 @@ const Register = () => {
             </span>
             <input
               className="w-full h-12 focus:outline-none"
-              type={`${showPassword?"text":"password"}`}
+              type={`${showPassword ? "text" : "password"}`}
               name="Confirmpassword"
               placeholder="Confirm Password"
               required
             />
           </div>
           <div className="absolute top-[205px] cursor-pointer right-5">
-            <span onClick={()=>setShowPassword(!showPassword)}>{showPassword ? <BsEyeFill></BsEyeFill>:<BsEyeSlashFill></BsEyeSlashFill>}</span>
+            <span onClick={() => setShowPassword(!showPassword)}>
+              {showPassword ? (
+                <BsEyeFill></BsEyeFill>
+              ) : (
+                <BsEyeSlashFill></BsEyeSlashFill>
+              )}
+            </span>
           </div>
           <div className="mb-4 flex justify-between">
             <div>
               <input type="checkbox" name="remember" className="mr-1" />
               <label for="remember" className="text-sm text-gray-600">
-                Accpect <Link className="text-amber-500" to=''>Trams and Condition</Link>
+                Accpect{" "}
+                <Link className="text-amber-500" to="">
+                  Trams and Condition
+                </Link>
               </label>
             </div>
           </div>
@@ -177,13 +197,16 @@ const Register = () => {
             <div className="w-full h-0.5  bg-slate-600"></div>
           </div>
           <div className="space-y-3">
-            <button className="w-full py-2 px-5 bg-amber-500  flex items-center gap-2  justify-center rounded-full font-semibold">
-              <BsFacebook className="w-6 h-6 text-white"></BsFacebook> Continue
-              with Facebook
-            </button>
-            <button className="w-full py-2 px-5 bg-teal-500  flex items-center gap-2  justify-center rounded-full font-semibold">
+            <button
+              onClick={signInGoogle}
+              className="w-full py-2 px-5 bg-teal-500  flex items-center gap-2  justify-center rounded-full font-semibold"
+            >
               <BsGoogle className="w-6 h-6 text-white"></BsGoogle> Continue with
               Google
+            </button>
+            <button className="w-full py-2 px-5 bg-amber-500  flex items-center gap-2  justify-center rounded-full font-semibold">
+              <BsGithub className="w-6 h-6 text-white"></BsGithub> Continue with
+              Github
             </button>
           </div>
         </form>

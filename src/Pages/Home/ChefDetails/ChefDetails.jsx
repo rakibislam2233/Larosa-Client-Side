@@ -8,8 +8,8 @@ const ChefDetails = ({data}) => {
             <img className='w-full h-72 rounded cursor-pointer' src={picture} alt="" />
            <div className='p-3 '>
            <h3 className='text-2xl'>{name}</h3>
-            <h2>Years of experience : {years_of_experience}</h2>
-            <p>Number of Recipes : {num_recipes}</p>
+            <h2>Years of experience : {years_of_experience} Years</h2>
+            <p>Number of Recipes : {num_recipes} Item</p>
             <p>Total Likes : {likes}</p>
            </div>
            <Link to={`/chefDetails/${id}`}><button className='py-2 px-5 bg-teal-500 rounded-full hover:bg-rose-500 duration-300 mx-2'>View Recipes</button></Link>

@@ -8,6 +8,7 @@ const Login = () => {
     const [showPassword,setShowPassword] = useState(false);
     const [error,setError] = useState('');
     const location = useLocation();
+    console.log(location);
     const naviget = useNavigate()
     const from = location?.state?.from.pathname || '/';
     const handelLogin = (e)=>{

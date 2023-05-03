@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { BsStarFill,BsStarHalf } from "react-icons/bs";
 import { MdOutlineFavorite} from "react-icons/md";
+import { Rating } from '@smastrom/react-rating'
+
+import '@smastrom/react-rating/style.css'
 import toast, { Toaster } from 'react-hot-toast';
 const Recipes = ({rp}) => {
     const [like,setLike] = useState(false)
@@ -18,13 +21,7 @@ const Recipes = ({rp}) => {
             <p><span className='text-xl'><span className='text-xl'>Method: <br /> </span></span>{method}</p>
             </div>
          <div className='flex justify-between'>
-         <h2 className='flex items-center gap-1'> <div className='flex gap-1 text-amber-500'>
-                <BsStarFill></BsStarFill>  
-                <BsStarFill></BsStarFill>  
-                <BsStarFill></BsStarFill>  
-                <BsStarFill></BsStarFill>  
-                <BsStarHalf></BsStarHalf>  
-                </div> {rating}</h2>
+         <h3 className='flex items-center gap-1'> <Rating style={{ maxWidth: 150 }} value={rating} readOnly />{rating}</h3>
             <div>
                 <button title='Your Favorite' disabled={like} className={`${like?"text-rose-500":''}`} onClick={handelButton}><MdOutlineFavorite className='w-6 h-6'></MdOutlineFavorite></button>
             </div>

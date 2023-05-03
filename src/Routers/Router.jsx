@@ -13,6 +13,7 @@ import Blogs from "../Pages/Home/Blogs/Blogs";
 import SingleChef from "../Pages/Home/SingleChef/SingleChef";
 import Login from "../Pages/Home/Auth/Login";
 import Register from "../Pages/Home/Auth/Register";
+import PrivetRoute from "./PrivetRoute/PrivetRoute";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/chefDetails/:id',
-          element:<SingleChef></SingleChef>,
+          element:<PrivetRoute><SingleChef></SingleChef></PrivetRoute>,
           loader:({params}) => fetch(`http://localhost:5000/chefDetails/${params.id}`)
         }
       ]

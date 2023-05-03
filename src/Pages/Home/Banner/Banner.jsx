@@ -7,6 +7,7 @@ import banner3 from "../../../assets/images/Banner/banner3.jpg";
 import banner4 from "../../../assets/images/Banner/banner4.jpg";
 import banner5 from "../../../assets/images/Banner/banner5.jpg";
 import banner7 from "../../../assets/images/Banner/banner7.jpg";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   const [sliderRef] = useKeenSlider(
@@ -63,7 +64,7 @@ const Banner = () => {
           <div className="space-y-4">
           <h2 className="text-xl text-slate-300 uppercase font-semibold">Welcome to Larosa</h2>
             <h2 className="text-6xl text-slate-200">Explore Our Menu</h2>
-            <button className="py-3 px-5 bg-teal-500 rounded-full  text-white hover:bg-rose-600 duration-500">Check out our Menu</button>
+           <Link className="block " to="/menu"><button className="py-3 px-5 bg-teal-500 rounded-full  text-white hover:bg-rose-600 duration-500">Check out our Menu</button></Link>
           </div>
            </div>
           </div>
@@ -83,7 +84,7 @@ const Banner = () => {
           <div className="space-y-4">
           <h2 className="text-xl text-slate-300 uppercase font-semibold">Welcome to Larosa</h2>
             <h2 className="text-6xl uppercase text-slate-200">Steakhouse+ bar</h2>
-            <button className="py-3 px-5 bg-teal-500 rounded-full  text-white hover:bg-rose-600 duration-500">Check out our Menu</button>
+           <Link className="block " to="/menu"><button className="py-3 px-5 bg-teal-500 rounded-full  text-white hover:bg-rose-600 duration-500">Check out our Menu</button></Link>
           </div>
            </div>
           </div>
@@ -103,7 +104,7 @@ const Banner = () => {
           <div className="space-y-4">
           <h2 className="text-xl text-slate-300 uppercase font-semibold">Welcome to Larosa</h2>
             <h2 className="text-6xl text-slate-200">Explore Our Menu</h2>
-            <button className="py-3 px-5 bg-teal-500 rounded-full  text-white hover:bg-rose-600 duration-500">Check out our Menu</button>
+           <Link className="block " to="/menu"><button className="py-3 px-5 bg-teal-500 rounded-full  text-white hover:bg-rose-600 duration-500">Check out our Menu</button></Link>
           </div>
            </div>
           </div>
@@ -123,7 +124,7 @@ const Banner = () => {
           <div className="space-y-4">
           <h2 className="text-xl text-slate-300 uppercase font-semibold">Welcome to Larosa</h2>
             <h2 className="text-6xl uppercase text-slate-200">Steakhouse+ bar</h2>
-            <button className="py-3 px-5 bg-teal-500 rounded-full  text-white hover:bg-rose-600 duration-500">Check out our Menu</button>
+           <Link className="block " to="/menu"><button className="py-3 px-5 bg-teal-500 rounded-full  text-white hover:bg-rose-600 duration-500">Check out our Menu</button></Link>
           </div>
            </div>
           </div>
@@ -143,7 +144,7 @@ const Banner = () => {
           <div className="space-y-4">
           <h2 className="text-xl text-slate-300 uppercase font-semibold">Welcome to Larosa</h2>
             <h2 className="text-6xl text-slate-200">Explore Our Menu</h2>
-            <button className="py-3 px-5 bg-teal-500 rounded-full  text-white hover:bg-rose-600 duration-500">Check out our Menu</button>
+           <Link className="block " to="/menu"><button className="py-3 px-5 bg-teal-500 rounded-full  text-white hover:bg-rose-600 duration-500">Check out our Menu</button></Link>
           </div>
            </div>
           </div>
@@ -163,7 +164,7 @@ const Banner = () => {
           <div className="space-y-4">
           <h2 className="text-xl text-slate-300 uppercase font-semibold">Welcome to Larosa</h2>
             <h2 className="text-6xl text-slate-200">Explore Our Menu</h2>
-            <button className="py-3 px-5 bg-teal-500 rounded-full  text-white hover:bg-rose-600 duration-500">Check out our Menu</button>
+           <Link className="block " to="/menu"><button className="py-3 px-5 bg-teal-500 rounded-full  text-white hover:bg-rose-600 duration-500">Check out our Menu</button></Link>
           </div>
            </div>
           </div>
