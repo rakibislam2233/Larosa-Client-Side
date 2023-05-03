@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { BsStarFill,BsStarHalf } from "react-icons/bs";
 import { MdOutlineFavorite} from "react-icons/md";
 import { Rating } from '@smastrom/react-rating'
-
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 import '@smastrom/react-rating/style.css'
 import toast, { Toaster } from 'react-hot-toast';
 const Recipes = ({rp}) => {
@@ -23,7 +24,10 @@ const Recipes = ({rp}) => {
          <div className='flex justify-between'>
          <h3 className='flex items-center gap-1'> <Rating style={{ maxWidth: 150 }} value={rating} readOnly />{rating}</h3>
             <div>
-                <button title='Your Favorite' disabled={like} className={`${like?"text-rose-500":''}`} onClick={handelButton}><MdOutlineFavorite className='w-6 h-6'></MdOutlineFavorite></button>
+                <button  data-tooltip-id="my-tooltip"
+                data-tooltip-content={`My Favorite`}
+                data-tooltip-place="top"  disabled={like} className={`${like?"text-rose-500":''}`} onClick={handelButton}><MdOutlineFavorite className='w-6 h-6'></MdOutlineFavorite></button>
+                <Tooltip id="my-tooltip" />
             </div>
          </div>
         </div>

@@ -24,8 +24,8 @@ const Header = () => {
           </h3>
         </div>
         <ul
-          className={`w-[75%] h-[100vh] md:w-auto md:h-auto bg-[#212428] md:bg-transparent text-center text-white  font-semibold  duration-200 md:duration-0  flex flex-col md:flex-row gap-5 absolute md:static  items-center ${
-            show ? "top-[90px] space-y-1 left-0 " : "top-[90px]  left-[-500px]"
+          className={`w-[75%] h-[100vh] md:w-auto md:h-auto bg-[#212428] md:bg-transparent text-center text-white  font-semibold  duration-500 md:duration-0  flex flex-col md:flex-row gap-5 absolute md:static  items-center ${
+            show ? "top-[80px] space-y-1 left-0 " : "top-[80px]  left-[-500px]"
           }`}
         >
           <NavLink className={"hover:text-rose-600 duration-300"} to="/">

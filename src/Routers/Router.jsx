@@ -14,10 +14,12 @@ import SingleChef from "../Pages/Home/SingleChef/SingleChef";
 import Login from "../Pages/Home/Auth/Login";
 import Register from "../Pages/Home/Auth/Register";
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
+import ErrorPage from "../Pages/Home/ErrorPage/ErrorPage";
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement: <ErrorPage></ErrorPage>,
       children:[
         {
             path:'/',
