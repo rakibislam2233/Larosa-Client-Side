@@ -3,10 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { BsGithub, BsGoogle, BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import toast, { Toaster } from "react-hot-toast";
 import { FaUser } from "react-icons/fa";
-import {updateProfile } from "firebase/auth";
+import { updateProfile } from "firebase/auth";
 import { UserContext } from "../../../Context/AuthProvider/AuthProvider";
 const Register = () => {
-  const { createUser, googleSignIn,githubSignIn } = useContext(UserContext);
+  const { createUser, googleSignIn, githubSignIn } = useContext(UserContext);
   console.log(googleSignIn);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
@@ -21,16 +21,18 @@ const Register = () => {
     const password = form.password.value;
     const confirmPassword = form.Confirmpassword.value;
     setError("");
-    if(name=='' || email=='' || password =='' ||confirmPassword == ''){
-    return setError("Please enter your value");
-    }
-    else if (password !== confirmPassword) {
+    if (name == "" || email == "" || password == "" || confirmPassword == "") {
+      return setError("Please enter your value");
+    } else if (password !== confirmPassword) {
       return setError("Password Not Matched");
-    }
-     else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/.test(password)) {
+    } else if (
+      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/.test(
+        password
+      )
+    ) {
       return setError(
         "Minimum Six characters, at least one uppercase letter, one lowercase letter, one number and one special character:"
-      )
+      );
     }
     createUser(email, password)
       .then((result) => {
@@ -41,31 +43,26 @@ const Register = () => {
         naviget("/");
         form.reset();
       })
-      .catch(() => {
-
-      });
+      .catch(() => {});
   };
   const signInGoogle = () => {
     googleSignIn()
-    .then((result) => {
-      const user = result.user;
-      console.log(user);
-      naviget("/")
-    })
-    .catch(() => {
-    })
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        naviget("/");
+      })
+      .catch(() => {});
   };
-  const gitHubLogin = ()=>{
+  const gitHubLogin = () => {
     githubSignIn()
-    .then(result=>{
-      const users = result.user;
-      console.log(users);
-      naviget(from,{replace:true})
-    })
-    .catch(err=>{
-      
-    })
-  }
+      .then((result) => {
+        const users = result.user;
+        console.log(users);
+        naviget(from, { replace: true });
+      })
+      .catch((err) => {});
+  };
   const updateUserInfo = (user, name, photoUrl) => {
     console.log(user);
     updateProfile(user, {
@@ -73,9 +70,7 @@ const Register = () => {
       photoURL: photoUrl,
     })
       .then(() => {})
-      .catch((err) => {
-        
-      });
+      .catch((err) => {});
   };
   return (
     <div className="w-full  pt-20  flex justify-center p-5">
@@ -93,7 +88,6 @@ const Register = () => {
               type="text"
               name="name"
               placeholder="Enter Your Name"
-            
             />
           </div>
           <div className="flex items-center bg-white rounded  mb-4">
@@ -111,7 +105,6 @@ const Register = () => {
               type="email"
               name="email"
               placeholder="Enter Your Email"
-            
             />
           </div>
           <div className="flex items-center bg-white rounded  mb-4">
@@ -153,7 +146,6 @@ const Register = () => {
               type={`${showPassword ? "text" : "password"}`}
               name="password"
               placeholder="Password"
-            
             />
           </div>
           <div className="flex items-center bg-white rounded  mb-4 relative">
@@ -171,7 +163,6 @@ const Register = () => {
               type={`${showPassword ? "text" : "password"}`}
               name="Confirmpassword"
               placeholder="Confirm Password"
-            
             />
           </div>
           <div className="absolute top-[205px] cursor-pointer right-5">
@@ -219,7 +210,10 @@ const Register = () => {
               <BsGoogle className="w-6 h-6 text-white"></BsGoogle> Continue with
               Google
             </div>
-            <div onClick={gitHubLogin} className="w-full py-2 px-5 bg-amber-500  flex items-center gap-2  justify-center rounded-full cursor-pointer font-semibold">
+            <div
+              onClick={gitHubLogin}
+              className="w-full py-2 px-5 bg-amber-500  flex items-center gap-2  justify-center rounded-full cursor-pointer font-semibold"
+            >
               <BsGithub className="w-6 h-6 text-white"></BsGithub> Continue with
               Github
             </div>

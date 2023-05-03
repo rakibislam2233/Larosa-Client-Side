@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
-import { FaUserTie} from "react-icons/fa";
+import { FaUserTie } from "react-icons/fa";
 import { UserContext } from "../../../Context/AuthProvider/AuthProvider";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
@@ -32,28 +32,67 @@ const Header = () => {
             show ? "top-[80px] space-y-1 left-0 " : "top-[80px]  left-[-500px]"
           }`}
         >
-        
-        <NavLink to={'/'} className={({isActive})=> isActive?"text-teal-500":""}>Home</NavLink>
-        <NavLink to={'/about'} className={({isActive})=> isActive?"text-teal-500":""}>About</NavLink>
-        <NavLink to={'/menu'} className={({isActive})=> isActive?"text-teal-500":""}>Menu</NavLink>
-        <NavLink to={'/chefs'} className={({isActive})=> isActive?"text-teal-500":""}>Our Chef</NavLink>
-        <NavLink to={'/blogs'} className={({isActive})=> isActive?"text-teal-500":""}>Blogs</NavLink>
-        <NavLink to="/contact" className={({isActive})=> isActive?"text-teal-500":""}>Contact</NavLink>
-        <NavLink  to="/register" className={({isActive})=> isActive?"text-teal-500":""}>Sign up</NavLink>
+          <NavLink
+            to={"/"}
+            className={({ isActive }) => (isActive ? "text-teal-500" : "")}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to={"/about"}
+            className={({ isActive }) => (isActive ? "text-teal-500" : "")}
+          >
+            About
+          </NavLink>
+          <NavLink
+            to={"/menu"}
+            className={({ isActive }) => (isActive ? "text-teal-500" : "")}
+          >
+            Menu
+          </NavLink>
+          <NavLink
+            to={"/chefs"}
+            className={({ isActive }) => (isActive ? "text-teal-500" : "")}
+          >
+            Our Chef
+          </NavLink>
+          <NavLink
+            to={"/blogs"}
+            className={({ isActive }) => (isActive ? "text-teal-500" : "")}
+          >
+            Blogs
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => (isActive ? "text-teal-500" : "")}
+          >
+            Contact
+          </NavLink>
+          <NavLink
+            to="/register"
+            className={({ isActive }) => (isActive ? "text-teal-500" : "")}
+          >
+            Sign up
+          </NavLink>
           {user ? (
             <>
-             {
-              user.photoURL ?  <img
-              data-tooltip-id="my-tooltip"
-              data-tooltip-content={`${user.displayName}`}
-              data-tooltip-place="top"
-              className="w-12 h-12 rounded-full ring-2 cursor-pointer ring-teal-500 "
-              src={user.photoURL}
-              alt=""
-            /> : <FaUserTie data-tooltip-id="my-tooltip"
-            data-tooltip-content={`${user.displayName}`}
-            data-tooltip-place="top" className="w-10 h-10  rounded-full ring-2 cursor-pointer ring-white"></FaUserTie>
-             }
+              {user.photoURL ? (
+                <img
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content={`${user.displayName}`}
+                  data-tooltip-place="top"
+                  className="w-12 h-12 rounded-full ring-2 cursor-pointer ring-teal-500 "
+                  src={user.photoURL}
+                  alt=""
+                />
+              ) : (
+                <FaUserTie
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content={`${user.displayName}`}
+                  data-tooltip-place="top"
+                  className="w-10 h-10  rounded-full ring-2 cursor-pointer ring-white"
+                ></FaUserTie>
+              )}
               <button
                 onClick={handelLogout}
                 className="py-2 px-5 bg-teal-500 rounded-full"

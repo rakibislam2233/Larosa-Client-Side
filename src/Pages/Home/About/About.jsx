@@ -1,12 +1,14 @@
 import React from "react";
-import images from '../../../assets/images/chef/download.png'
+import images from "../../../assets/images/chef/download.png";
 const About = () => {
   return (
     <div className="w-full bg-[#212428]  pt-24 px-5">
-      <h2 className="text-4xl text-center font-semibold text-teal-500">About Us</h2>
+      <h2 className="text-4xl text-center font-semibold text-teal-500">
+        About Us
+      </h2>
       <div className="w-full h-full max-w-6xl mx-auto md:flex justify-between items-center">
-      <div className="md:w-[50%]">
-            <img className="w-full h-fullrounded-full" src={images} alt="" />
+        <div className="md:w-[50%]">
+          <img className="w-full h-fullrounded-full" src={images} alt="" />
         </div>
         <div className="md:md:w-[50%] space-y-3">
           <h1 className="text-5xl text-white">Our philosophy</h1>
@@ -17,7 +19,9 @@ const About = () => {
             they are vibrantly diverse, spectacularly nutritious, and remarkably
             under-utilized.
           </p>
-          <button className="py-2 px-5 animate-pulse bg-teal-500 rounded-full text-white">View Our Gallery</button>
+          <button className="py-2 px-5 animate-pulse bg-teal-500 rounded-full text-white">
+            View Our Gallery
+          </button>
         </div>
       </div>
     </div>
