@@ -21,12 +21,16 @@ const Register = () => {
     const password = form.password.value;
     const confirmPassword = form.Confirmpassword.value;
     setError("");
-    if (password !== confirmPassword) {
+    if(name=='' || email=='' || password =='' ||confirmPassword == ''){
+    return setError("Please enter your value");
+    }
+    else if (password !== confirmPassword) {
       return setError("Password Not Matched");
-    } else if (!/[A-Za-z\d@$!%*?&]{8,}/.test(password)) {
+    }
+     else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/.test(password)) {
       return setError(
-        "Password must be at least 8 characters long and can only contain uppercase letters, lowercase letters, digits, and special characters"
-      );
+        "Minimum Six characters, at least one uppercase letter, one lowercase letter, one number and one special character:"
+      )
     }
     createUser(email, password)
       .then((result) => {
@@ -37,8 +41,8 @@ const Register = () => {
         naviget("/");
         form.reset();
       })
-      .catch((err) => {
-        setError(err.message);
+      .catch(() => {
+
       });
   };
   const signInGoogle = () => {
@@ -48,8 +52,7 @@ const Register = () => {
       console.log(user);
       naviget("/")
     })
-    .catch((err) => {
-      console.log(err.message);
+    .catch(() => {
     })
   };
   const gitHubLogin = ()=>{
@@ -60,7 +63,7 @@ const Register = () => {
       naviget(from,{replace:true})
     })
     .catch(err=>{
-      setError(err.message);
+      
     })
   }
   const updateUserInfo = (user, name, photoUrl) => {
@@ -71,7 +74,7 @@ const Register = () => {
     })
       .then(() => {})
       .catch((err) => {
-        setError(err.message);
+        
       });
   };
   return (
@@ -90,7 +93,7 @@ const Register = () => {
               type="text"
               name="name"
               placeholder="Enter Your Name"
-              required
+            
             />
           </div>
           <div className="flex items-center bg-white rounded  mb-4">
@@ -108,7 +111,7 @@ const Register = () => {
               type="email"
               name="email"
               placeholder="Enter Your Email"
-              required
+            
             />
           </div>
           <div className="flex items-center bg-white rounded  mb-4">
@@ -150,7 +153,7 @@ const Register = () => {
               type={`${showPassword ? "text" : "password"}`}
               name="password"
               placeholder="Password"
-              required
+            
             />
           </div>
           <div className="flex items-center bg-white rounded  mb-4 relative">
@@ -168,7 +171,7 @@ const Register = () => {
               type={`${showPassword ? "text" : "password"}`}
               name="Confirmpassword"
               placeholder="Confirm Password"
-              required
+            
             />
           </div>
           <div className="absolute top-[205px] cursor-pointer right-5">
@@ -209,17 +212,17 @@ const Register = () => {
             <div className="w-full h-0.5  bg-slate-600"></div>
           </div>
           <div className="space-y-3">
-            <button
+            <div
               onClick={signInGoogle}
-              className="w-full py-2 px-5 bg-teal-500  flex items-center gap-2  justify-center rounded-full font-semibold"
+              className="w-full py-2 px-5 bg-teal-500  flex items-center gap-2  cursor-pointer justify-center rounded-full font-semibold"
             >
               <BsGoogle className="w-6 h-6 text-white"></BsGoogle> Continue with
               Google
-            </button>
-            <button onClick={gitHubLogin} className="w-full py-2 px-5 bg-amber-500  flex items-center gap-2  justify-center rounded-full font-semibold">
+            </div>
+            <div onClick={gitHubLogin} className="w-full py-2 px-5 bg-amber-500  flex items-center gap-2  justify-center rounded-full cursor-pointer font-semibold">
               <BsGithub className="w-6 h-6 text-white"></BsGithub> Continue with
               Github
-            </button>
+            </div>
           </div>
         </form>
       </div>

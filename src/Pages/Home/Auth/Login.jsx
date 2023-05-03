@@ -19,8 +19,8 @@ const Login = () => {
         const password = form.password.value;
         setError('')
         console.log(email,password)
-        if (!/[A-Za-z\d@$!%*?&]{8,}/.test(password)) {
-            setError('Password must be at least 8 characters long and can only contain uppercase letters, lowercase letters, digits, and special characters');
+        if (email =='' || password == '') {
+           return setError('Please enter your value');
         }
         signIn(email,password)
         .then(result=>{
@@ -30,8 +30,8 @@ const Login = () => {
           toast.success('Loging Successfully');
           from.reset()
         })
-        .catch(err=>{
-          setError(err.message);
+        .catch(()=>{
+    
         })
     }
     const googleLogin = ()=>{
@@ -41,8 +41,8 @@ const Login = () => {
         console.log(users);
         naviget(from,{replace:true})
       })
-      .catch(err=>{
-        setError(err.message);
+      .catch(()=>{
+      
       })
     }
     const gitHubLogin = ()=>{
@@ -52,8 +52,8 @@ const Login = () => {
         console.log(users);
         naviget(from,{replace:true})
       })
-      .catch(err=>{
-        setError(err.message);
+      .catch(()=>{
+       
       })
     }
   return (
@@ -76,7 +76,7 @@ const Login = () => {
               type="email"
               name="email"
               placeholder="Enter Your Email"
-              required
+              
 
             />
           </div>
@@ -95,7 +95,7 @@ const Login = () => {
               type={`${showPassword?"text":"password"}`}
               name="password"
               placeholder="Password"
-              required
+              
             />
           </div>
           
@@ -126,8 +126,8 @@ const Login = () => {
             <div className="w-full h-0.5  bg-slate-600"></div>
           </div>
           <div className="space-y-3">
-            <button onClick={googleLogin} className="w-full py-2 px-5 bg-teal-500  flex items-center gap-2  justify-center rounded-full font-semibold"><BsGoogle className="w-6 h-6 text-white"></BsGoogle> Continue with Google</button>
-            <button onClick={gitHubLogin} className="w-full py-2 px-5 bg-amber-500  flex items-center gap-2  justify-center rounded-full font-semibold"><BsGithub className="w-6 h-6 text-white"></BsGithub> Continue with Github</button>
+            <div onClick={googleLogin} className="w-full cursor-pointer py-2 px-5 bg-teal-500  flex items-center gap-2  justify-center rounded-full font-semibold"><BsGoogle className="w-6 h-6 text-white"></BsGoogle> Continue with Google</div>
+            <div onClick={gitHubLogin} className="w-full py-2 px-5 bg-amber-500 cursor-pointer flex items-center gap-2  justify-center rounded-full font-semibold"><BsGithub className="w-6 h-6 text-white"></BsGithub> Continue with Github</div>
           </div>
         </form>
       </div>

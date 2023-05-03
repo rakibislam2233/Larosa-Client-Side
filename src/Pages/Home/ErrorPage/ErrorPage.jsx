@@ -7,7 +7,7 @@ const ErrorPage = () => {
            <div className='relative'>
             <img className='w-full h-96 mx-auto' src={logo}alt="" />
             <div className='absolute bottom-5 flex left-0 right-0 justify-center'>
-            <h3 className='uppercase text-5xl font-bold text-[#93ADBE]'>404 Error Page</h3>
+            <h3 className='uppercase text-5xl font-bold text-[#93ADBE]'>404 Page</h3>
             </div>
            
            </div>

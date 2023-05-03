@@ -8,7 +8,6 @@ import Chef from "../Pages/Home/Chef/Chef";
 import Contact from "../Pages/Home/Contact/Contact";
 import About from "../Pages/Home/About/About";
 import Menu from "../Pages/Home/Menu/Menu";
-import Gallery from "../Pages/Home/Gallery/Gallery";
 import Blogs from "../Pages/Home/Blogs/Blogs";
 import SingleChef from "../Pages/Home/SingleChef/SingleChef";
 import Login from "../Pages/Home/Auth/Login";
@@ -32,10 +31,6 @@ const router = createBrowserRouter([
         {
             path:'/menu',
             element:<Menu></Menu>
-        },
-        {
-            path:'/gallery',
-            element:<Gallery></Gallery>
         },
         {
             path:'/chefs',
