@@ -19,20 +19,17 @@ const Register = () => {
     const email = form.email.value;
     const photoUrl = form.photoUrl.value;
     const password = form.password.value;
-    const confirmPassword = form.Confirmpassword.value;
     setError("");
-    if (name == "" || email == "" || password == "" || confirmPassword == "") {
-      return setError("Please enter your value");
-    } else if (password !== confirmPassword) {
-      return setError("Password Not Matched");
-    } else if (
-      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/.test(
-        password
-      )
-    ) {
-      return setError(
-        "Minimum Six characters, at least one uppercase letter, one lowercase letter, one number and one special character:"
-      );
+    if(name==''){
+      return setError("Please enter a your name")
+    }
+    else if(email==''){
+     return setError("Please enter a your email");
+    }else if(password.length==0){
+      return setError("Please enter a your password")
+    }
+    else if(password.length<6){
+      return setError("Password minimum six characters")
     }
     createUser(email, password)
       .then((result) => {
@@ -78,13 +75,21 @@ const Register = () => {
         <h2 className="text-3xl font-semibold text-center py-5">
           Create an account
         </h2>
+        {
+          error ? <div className="alert alert-error shadow-lg my-2">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+           <h3>{error}</h3>
+          </div>
+        </div>: ''
+        }
         <form onSubmit={handelRegister} className="w-4/5 mx-auto relative">
           <div className="flex items-center bg-white rounded  mb-4">
             <span className="px-3">
               <FaUser className="text-[#6B7280]"></FaUser>
             </span>
             <input
-              className="w-full h-12 focus:outline-none"
+              className="w-full h-12 focus:outline-none px-3"
               type="text"
               name="name"
               placeholder="Enter Your Name"
@@ -101,7 +106,7 @@ const Register = () => {
               </svg>
             </span>
             <input
-              className="w-full h-12 focus:outline-none"
+              className="w-full h-12 focus:outline-none px-3"
               type="email"
               name="email"
               placeholder="Enter Your Email"
@@ -142,27 +147,10 @@ const Register = () => {
               </svg>
             </span>
             <input
-              className="w-full h-12 focus:outline-none"
+              className="w-full h-12 focus:outline-none px-3"
               type={`${showPassword ? "text" : "password"}`}
               name="password"
               placeholder="Password"
-            />
-          </div>
-          <div className="flex items-center bg-white rounded  mb-4 relative">
-            <span className="px-3">
-              <svg
-                className="fill-current text-gray-500 w-4 h-4"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M4 8V6a6 6 0 1 1 12 0h-3v2h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
-              </svg>
-            </span>
-            <input
-              className="w-full h-12 focus:outline-none"
-              type={`${showPassword ? "text" : "password"}`}
-              name="Confirmpassword"
-              placeholder="Confirm Password"
             />
           </div>
           <div className="absolute top-[205px] cursor-pointer right-5">
@@ -185,7 +173,6 @@ const Register = () => {
               </label>
             </div>
           </div>
-          <h3 className="text-rose-700">{error}</h3>
           <button className="bg-teal-500 w-full text-white text-sm uppercase rounded-full  px-6 py-3">
             Sign up
           </button>

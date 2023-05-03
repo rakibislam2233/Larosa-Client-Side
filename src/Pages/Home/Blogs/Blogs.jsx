@@ -2,8 +2,8 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <div>
-            
+        <div className='pt-24'>
+           
         </div>
     );
 };

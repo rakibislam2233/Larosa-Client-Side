@@ -1,16 +1,19 @@
 import React from "react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import LazyLoad from "react-lazy-load";
 const MenuFood = ({ dt }) => {
   console.log(dt);
   const { name, picture, rating, price } = dt;
   return (
       <div className="w-full h-full relative ">
-          <img
+        <LazyLoad>
+        <img
             className="w-full h-72 rounded-2xl cursor-pointer"
             src={picture}
             alt=""
           />
+        </LazyLoad>
 
         <div className="w-[100%] overflow-hidden  absolute  rounded-2xl top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-rose-50 to-rose-700 opacity-0 hover:opacity-100  duration-500 flex justify-center items-center text-center cursor-pointer">
           <div>

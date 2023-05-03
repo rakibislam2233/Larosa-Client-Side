@@ -1,65 +1,85 @@
-import React, {useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { BsGithub, BsGoogle,BsEyeFill,BsEyeSlashFill} from "react-icons/bs";
+import { BsGithub, BsGoogle, BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { UserContext } from "../../../Context/AuthProvider/AuthProvider";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 const Login = () => {
-    const {signIn,googleSignIn,githubSignIn} = useContext(UserContext);
-    console.log(githubSignIn);
-    const [showPassword,setShowPassword] = useState(false);
-    const [error,setError] = useState('');
-    const location = useLocation();
-    console.log(location);
-    const naviget = useNavigate()
-    const from = location?.state?.from.pathname || '/';
-    const handelLogin = (e)=>{
-        e.preventDefault()
-        const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        setError('')
-        console.log(email,password)
-        if (email =='' || password == '') {
-           return setError('Please enter your value');
-        }
-        signIn(email,password)
-        .then(result=>{
-          const users = result.user;
-          console.log(users);
-          naviget(from,{replace:true})
-          toast.success('Loging Successfully');
-          from.reset()
-        })
-        .catch(()=>{
-    
-        })
+  const { signIn, googleSignIn, githubSignIn } = useContext(UserContext);
+  console.log(githubSignIn);
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const location = useLocation();
+  console.log(location);
+  const naviget = useNavigate();
+  const from = location?.state?.from.pathname || "/";
+  const handelLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    setError("");
+    console.log(email, password);
+    if (email == "") {
+      return setError("Please enter your email");
+    } else if (password.length == 0) {
+      return setError("Please enter your password");
     }
-    const googleLogin = ()=>{
-      googleSignIn()
-      .then(result=>{
+    signIn(email, password)
+      .then((result) => {
         const users = result.user;
         console.log(users);
-        naviget(from,{replace:true})
+        naviget(from, { replace: true });
+        toast.success("Loging Successfully");
+        from.reset();
       })
-      .catch(()=>{
-      
-      })
-    }
-    const gitHubLogin = ()=>{
-      githubSignIn()
-      .then(result=>{
+      .catch(() => {});
+  };
+  const googleLogin = () => {
+    googleSignIn()
+      .then((result) => {
         const users = result.user;
         console.log(users);
-        naviget(from,{replace:true})
+        naviget(from, { replace: true });
       })
-      .catch(()=>{
-       
+      .catch(() => {});
+  };
+  const gitHubLogin = () => {
+    githubSignIn()
+      .then((result) => {
+        const users = result.user;
+        console.log(users);
+        naviget(from, { replace: true });
       })
-    }
+      .catch(() => {});
+  };
   return (
     <div className="w-full  pt-20 flex justify-center p-5">
-  <div className="w-full lg:w-[30%] bg-gray-200 pb-5 mt-4 rounded">
-    <h2 className="text-3xl font-semibold text-center py-5">Please Login</h2>
+      <div className="w-full lg:w-[30%] bg-gray-200 pb-5 mt-4 rounded">
+        <h2 className="text-3xl font-semibold text-center py-5">
+          Please Login
+        </h2>
+        {error ? (
+          <div className="alert alert-error shadow-lg my-2">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="stroke-current flex-shrink-0 h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <h3>{error}</h3>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
         <form onSubmit={handelLogin} className="w-4/5 mx-auto relative">
           <div className="flex items-center bg-white rounded mb-4 relative">
             <span className="px-3">
@@ -76,8 +96,6 @@ const Login = () => {
               type="email"
               name="email"
               placeholder="Enter Your Email"
-              
-
             />
           </div>
           <div className="flex items-center bg-white rounded  mb-4 relative">
@@ -92,33 +110,44 @@ const Login = () => {
             </span>
             <input
               className="w-full h-12 focus:outline-none"
-              type={`${showPassword?"text":"password"}`}
+              type={`${showPassword ? "text" : "password"}`}
               name="password"
               placeholder="Password"
-              
             />
           </div>
-          
+
           <div className="absolute top-[80px] right-5 cursor-pointer">
-            <span  onClick={()=>setShowPassword(!showPassword)}>{showPassword ? <BsEyeFill></BsEyeFill>:<BsEyeSlashFill></BsEyeSlashFill>}</span>
+            <span onClick={() => setShowPassword(!showPassword)}>
+              {showPassword ? (
+                <BsEyeFill></BsEyeFill>
+              ) : (
+                <BsEyeSlashFill></BsEyeSlashFill>
+              )}
+            </span>
           </div>
           <div className="mb-4 flex justify-between">
             <div>
-            <input type="checkbox" name="remember" className="mr-1" />
-            <label for="remember" className="text-sm text-gray-600">
-              Remember me
-            </label>
+              <input type="checkbox" name="remember" className="mr-1" />
+              <label for="remember" className="text-sm text-gray-600">
+                Remember me
+              </label>
             </div>
             <div>
-                <button className="underline text-amber-500">Forget Password</button>
+              <button className="underline text-amber-500">
+                Forget Password
+              </button>
             </div>
           </div>
-          <h3 className="text-rose-700">{error}</h3>
           <button className="bg-teal-500 w-full text-white text-sm uppercase rounded-full  px-6 py-3">
             Sign in
           </button>
           <div className="text-center  py-2">
-            <h2>Don't have an accoutn? Please <Link className="text-amber-500" to='/register'>Create an account</Link> </h2>
+            <h2>
+              Don't have an accoutn? Please{" "}
+              <Link className="text-amber-500" to="/register">
+                Create an account
+              </Link>{" "}
+            </h2>
           </div>
           <div className="text-center flex justify-center items-center gap-3">
             <div className="w-full h-0.5 bg-slate-600"></div>
@@ -126,12 +155,23 @@ const Login = () => {
             <div className="w-full h-0.5  bg-slate-600"></div>
           </div>
           <div className="space-y-3">
-            <div onClick={googleLogin} className="w-full cursor-pointer py-2 px-5 bg-teal-500  flex items-center gap-2  justify-center rounded-full font-semibold"><BsGoogle className="w-6 h-6 text-white"></BsGoogle> Continue with Google</div>
-            <div onClick={gitHubLogin} className="w-full py-2 px-5 bg-amber-500 cursor-pointer flex items-center gap-2  justify-center rounded-full font-semibold"><BsGithub className="w-6 h-6 text-white"></BsGithub> Continue with Github</div>
+            <div
+              onClick={googleLogin}
+              className="w-full cursor-pointer py-2 px-5 bg-teal-500  flex items-center gap-2  justify-center rounded-full font-semibold"
+            >
+              <BsGoogle className="w-6 h-6 text-white"></BsGoogle> Continue with
+              Google
+            </div>
+            <div
+              onClick={gitHubLogin}
+              className="w-full py-2 px-5 bg-amber-500 cursor-pointer flex items-center gap-2  justify-center rounded-full font-semibold"
+            >
+              <BsGithub className="w-6 h-6 text-white"></BsGithub> Continue with
+              Github
+            </div>
           </div>
         </form>
       </div>
-    
     </div>
   );
 };

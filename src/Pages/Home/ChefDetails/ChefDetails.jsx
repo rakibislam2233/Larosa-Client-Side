@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const ChefDetails = ({ data }) => {
   const { id, name, picture, years_of_experience, num_recipes, likes } = data;
   return (
-    <div className="w-full h-full py-5  rounded-xl shadow-2xl space-y-2 text-white">
+    <div className="w-full h-full py-5  rounded-xl shadow-2xl space-y-2 text-white hover:scale-105 duration-300">
       <img
         className="w-full h-72 rounded cursor-pointer"
         src={data?.picture}
