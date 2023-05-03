@@ -19,9 +19,9 @@ const Header = () => {
     <nav className="w-full bg-[#212428]  fixed t z-50  text-white py-5 h-20 px-5">
       <div className="max-w-6xl mx-auto  flex justify-between items-center font-bodyFont">
         <div>
-          <h3 className="text-2xl cursor-pointer font-semibold font-bodyFont">
+         <Link to={'/'}> <h3 className="text-2xl cursor-pointer font-semibold font-bodyFont">
             La<span>Rosa</span>
-          </h3>
+          </h3></Link>
         </div>
         <ul
           className={`w-[75%] h-[100vh] md:w-auto md:h-auto bg-[#212428] md:bg-transparent text-center text-white  font-semibold  duration-500 md:duration-0  flex flex-col md:flex-row gap-5 absolute md:static  items-center ${

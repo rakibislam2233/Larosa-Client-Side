@@ -6,7 +6,7 @@ import { FaUser } from "react-icons/fa";
 import {updateProfile } from "firebase/auth";
 import { UserContext } from "../../../Context/AuthProvider/AuthProvider";
 const Register = () => {
-  const { createUser, googleSignIn } = useContext(UserContext);
+  const { createUser, googleSignIn,githubSignIn } = useContext(UserContext);
   console.log(googleSignIn);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
@@ -34,7 +34,7 @@ const Register = () => {
         console.log(users);
         updateUserInfo(users, name, photoUrl);
         toast.success("Your Register Successfully");
-        naviget("/login");
+        naviget("/");
         form.reset();
       })
       .catch((err) => {
@@ -46,11 +46,23 @@ const Register = () => {
     .then((result) => {
       const user = result.user;
       console.log(user);
+      naviget("/")
     })
     .catch((err) => {
       console.log(err.message);
     })
   };
+  const gitHubLogin = ()=>{
+    githubSignIn()
+    .then(result=>{
+      const users = result.user;
+      console.log(users);
+      naviget(from,{replace:true})
+    })
+    .catch(err=>{
+      setError(err.message);
+    })
+  }
   const updateUserInfo = (user, name, photoUrl) => {
     console.log(user);
     updateProfile(user, {
@@ -204,7 +216,7 @@ const Register = () => {
               <BsGoogle className="w-6 h-6 text-white"></BsGoogle> Continue with
               Google
             </button>
-            <button className="w-full py-2 px-5 bg-amber-500  flex items-center gap-2  justify-center rounded-full font-semibold">
+            <button onClick={gitHubLogin} className="w-full py-2 px-5 bg-amber-500  flex items-center gap-2  justify-center rounded-full font-semibold">
               <BsGithub className="w-6 h-6 text-white"></BsGithub> Continue with
               Github
             </button>

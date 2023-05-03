@@ -1,10 +1,11 @@
 import React, {useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { BsFacebook, BsGoogle,BsEyeFill,BsEyeSlashFill} from "react-icons/bs";
+import { BsGithub, BsGoogle,BsEyeFill,BsEyeSlashFill} from "react-icons/bs";
 import { UserContext } from "../../../Context/AuthProvider/AuthProvider";
 import toast, { Toaster } from 'react-hot-toast';
 const Login = () => {
-    const {signIn} = useContext(UserContext);
+    const {signIn,googleSignIn,githubSignIn} = useContext(UserContext);
+    console.log(githubSignIn);
     const [showPassword,setShowPassword] = useState(false);
     const [error,setError] = useState('');
     const location = useLocation();
@@ -32,6 +33,28 @@ const Login = () => {
         .catch(err=>{
           setError(err.message);
         })
+    }
+    const googleLogin = ()=>{
+      googleSignIn()
+      .then(result=>{
+        const users = result.user;
+        console.log(users);
+        naviget(from,{replace:true})
+      })
+      .catch(err=>{
+        setError(err.message);
+      })
+    }
+    const gitHubLogin = ()=>{
+      githubSignIn()
+      .then(result=>{
+        const users = result.user;
+        console.log(users);
+        naviget(from,{replace:true})
+      })
+      .catch(err=>{
+        setError(err.message);
+      })
     }
   return (
     <div className="w-full  pt-20 flex justify-center p-5">
@@ -103,8 +126,8 @@ const Login = () => {
             <div className="w-full h-0.5  bg-slate-600"></div>
           </div>
           <div className="space-y-3">
-            <button className="w-full py-2 px-5 bg-amber-500  flex items-center gap-2  justify-center rounded-full font-semibold"><BsFacebook className="w-6 h-6 text-white"></BsFacebook> Continue with Facebook</button>
-            <button className="w-full py-2 px-5 bg-teal-500  flex items-center gap-2  justify-center rounded-full font-semibold"><BsGoogle className="w-6 h-6 text-white"></BsGoogle> Continue with Google</button>
+            <button onClick={googleLogin} className="w-full py-2 px-5 bg-teal-500  flex items-center gap-2  justify-center rounded-full font-semibold"><BsGoogle className="w-6 h-6 text-white"></BsGoogle> Continue with Google</button>
+            <button onClick={gitHubLogin} className="w-full py-2 px-5 bg-amber-500  flex items-center gap-2  justify-center rounded-full font-semibold"><BsGithub className="w-6 h-6 text-white"></BsGithub> Continue with Github</button>
           </div>
         </form>
       </div>
