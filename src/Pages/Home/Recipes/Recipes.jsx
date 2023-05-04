@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { MdOutlineFavorite } from "react-icons/md";
 import { Rating } from "@smastrom/react-rating";
 import { Tooltip } from "react-tooltip";

@@ -4,13 +4,13 @@ import Footer from "../../Pages/Shared/Footer/Footer";
 import { Outlet } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { UserContext } from "../../Context/AuthProvider/AuthProvider";
-import GridLoader from "react-spinners/GridLoader";
+import { BeatLoader } from "react-spinners";
 const Main = () => {
     const {loading} = useContext(UserContext);
   return(
     <div>
         {
-            loading ? <div className="w-full bg-[#212428] h-screen flex justify-center items-center"><GridLoader
+            loading ? <div className="w-full bg-[#212428] h-screen flex justify-center items-center"><BeatLoader
             color={"#10B981"}
             loading={loading}
             size={40}
