@@ -5,7 +5,7 @@ const Menu = () => {
   const [datas, setData] = useState([]);
   const [loading,setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://bengali-chef-server-site-rakibislam2233.vercel.app/")
+    fetch("https://bengali-chef-server-site-rakibislam2233.vercel.app/menu")
       .then((res) => res.json())
       .then((data) => {setData(data),setLoading(false)});
   }, []);
@@ -23,9 +23,7 @@ const Menu = () => {
       Our Menu
     </h2>
     <div className="w-full max-w-6xl mx-auto grid md:grid-cols-3 lg:grid-cols-4 gap-5 py-10">
-      {datas.map((data) =>
-        data.recipes.map((dt,index) => <MenuFood key={index} dt={dt}></MenuFood>)
-      )}
+      {datas.map((data) => <MenuFood key={data.id} data={data}></MenuFood>)}
     </div>
   </div>
    }

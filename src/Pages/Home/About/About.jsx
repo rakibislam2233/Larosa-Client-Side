@@ -10,7 +10,7 @@ const About = () => {
       </h2>
       <div className="w-full h-full max-w-6xl mx-auto md:flex justify-between items-center">
         <div className="md:w-[50%]">
-          <img className="w-full h-fullrounded-full" src='https://i.ibb.co/1QH6Lgf/download.png' alt="" />
+          <img className="w-full h-fullrounded-full" src='https://i.postimg.cc/13Yq0DhH/download.png' alt="" />
         </div>
         <div className="md:md:w-[50%] space-y-3">
           <h1 className="text-5xl text-white">Our philosophy</h1>
