@@ -1,7 +1,11 @@
 # b7a10-chef-recipe-hunter-client-side-rakibislam2233
 b7a10-chef-recipe-hunter-client-side-rakibislam2233 created by GitHub Classroom
 
-**Project Name-Laroja**
+**Project-Name-Laroja**
+
+
+
+**Live Website: **
 
 **Navbar**
 * added 7 link on navbar and also added profile interaction
