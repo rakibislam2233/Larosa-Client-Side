@@ -19,7 +19,7 @@ const Recipes = ({ rp }) => {
   return (
     /** here is recipes  Section Start  */
     <div className="border border-[#212428] shadow-2xl rounded-2xl p-5 space-y-3 flex flex-col justify-between">
-      <div>
+      <div className="space-y-3">
         <img className="w-full h-96 rounded-2xl" src={picture} alt="" />
         <h3 className="text-2xl">{name}</h3>
         <p>
