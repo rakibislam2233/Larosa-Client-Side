@@ -4,14 +4,17 @@ import { BsGithub, BsGoogle, BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { UserContext } from "../../../Context/AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 const Login = () => {
+    /** here is a useContext   */ 
   const { signIn, googleSignIn, githubSignIn } = useContext(UserContext);
   console.log(githubSignIn);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+    /** here is a useLocation. it is a reat hook   */
   const location = useLocation();
-  console.log(location);
+    /** here is a useNavigate . it is a reat hook  */
   const naviget = useNavigate();
   const from = location?.state?.from.pathname || "/";
+   /** here is a handellogin function */
   const handelLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -36,6 +39,7 @@ const Login = () => {
         setError(err.message)
       });
   };
+   /** here is a Googlelogin function */
   const googleLogin = () => {
     googleSignIn()
       .then((result) => {
@@ -47,6 +51,7 @@ const Login = () => {
         setError(err.message)
       });
   };
+   /** here is a Githublogin function */
   const gitHubLogin = () => {
     githubSignIn()
       .then((result) => {
@@ -59,6 +64,7 @@ const Login = () => {
       });
   };
   return (
+     /** Login section start */
     <div className="w-full  pt-20 flex justify-center p-20">
       <div className="w-full lg:w-[30%] bg-gray-200 pb-5 mt-4 rounded">
         <h2 className="text-3xl font-semibold text-center py-5">
@@ -179,6 +185,7 @@ const Login = () => {
         </form>
       </div>
     </div>
+      /** Login section end */
   );
 };
 

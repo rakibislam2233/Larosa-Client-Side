@@ -14,6 +14,7 @@ import Login from "../Pages/Home/Auth/Login";
 import Register from "../Pages/Home/Auth/Register";
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
 import ErrorPage from "../Pages/Home/ErrorPage/ErrorPage";
+/** it is a main route  */
 const router = createBrowserRouter([
     {
       path: "/",

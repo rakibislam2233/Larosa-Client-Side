@@ -5,6 +5,7 @@ import { Outlet } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { UserContext } from "../../Context/AuthProvider/AuthProvider";
 import { BeatLoader } from "react-spinners";
+/** this  is main layout Start  */
 const Main = () => {
     const {loading} = useContext(UserContext);
   return(
@@ -27,5 +28,5 @@ const Main = () => {
     </div>
   )
 };
-
+/** main layout end  */
 export default Main;

@@ -2,16 +2,20 @@ import React, { useEffect, useState } from "react";
 import ChefDetails from "../ChefDetails/ChefDetails";
 import BeatLoader from "react-spinners/BeatLoader";
 const Chef = () => {
+   /** setData useState  */
   const [datas, setData] = useState([]);
+   /** here is a lodaing  */
   const [loading,setLoading] = useState(true);
+   /** here is a useEffect when user click chef link data fetching  */
   useEffect(() => {
     fetch("https://bengali-chef-server-site-rakibislam2233.vercel.app/")
       .then((res) => res.json())
       .then((data) => {setData(data),setLoading(false)});
   }, []);
   return (
-   <>
+   <> 
    {
+     /** here is a chef section and data loading spinner  */
     loading ? <div className="w-full bg-[#212428] h-screen flex justify-center items-center"><BeatLoader
     color={"#10B981"}
     loading={loading}

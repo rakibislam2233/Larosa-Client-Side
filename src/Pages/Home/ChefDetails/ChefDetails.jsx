@@ -7,6 +7,7 @@ const ChefDetails = ({ data }) => {
   }, [])
   const { id, name, picture, years_of_experience, num_recipes, likes } = data;
   return (
+     /** cherDetails Section Start  */
     <div className="w-full h-full py-5  rounded-xl shadow-2xl space-y-2 text-gray-400">
      <LazyLoad>
      <img
@@ -27,6 +28,7 @@ const ChefDetails = ({ data }) => {
         </button>
       </Link>
     </div>
+  /** cherDetails Section end  */
   );
 };
 

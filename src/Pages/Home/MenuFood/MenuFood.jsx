@@ -9,6 +9,7 @@ const MenuFood = ({data}) => {
   }, [])
   return (
       <div className="w-full h-full relative ">
+        {/* this is a lazy loder*/}
         <LazyLoad>
         <img
             className="w-full h-72 rounded-2xl cursor-pointer"
@@ -16,7 +17,7 @@ const MenuFood = ({data}) => {
             alt=""
           />
         </LazyLoad>
-
+      {/* this is a menu food section*/}
         <div className="w-[100%] overflow-hidden  absolute  rounded-2xl top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-rose-50 to-rose-700 opacity-0 hover:opacity-100  duration-500 flex justify-center items-center text-center cursor-pointer">
           <div>
             <h2 className="text-xl font-semibold">{name}</h2>

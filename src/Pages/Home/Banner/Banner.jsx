@@ -1,12 +1,9 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import banner3 from "../../../assets/images/Banner/banner3.jpg";
-import banner4 from "../../../assets/images/Banner/banner4.jpg";
-import banner5 from "../../../assets/images/Banner/banner5.jpg";
-import banner7 from "../../../assets/images/Banner/banner7.jpg";
 import { Link } from "react-router-dom";
 
 const Banner = () => {
+   /** here is a keen slider   */
   const [sliderRef] = useKeenSlider(
     {
       loop: true,
@@ -44,7 +41,8 @@ const Banner = () => {
   );
 
   return (
-    <>
+
+     /** Banner Section Start  */
       <div ref={sliderRef} className="keen-slider cursor-pointer">
         <div className="keen-slider__slide number-slide1">
           <div
@@ -167,7 +165,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
-    </>
+       /** Banner Section End */
   );
 };
 

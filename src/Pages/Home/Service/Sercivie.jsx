@@ -6,6 +6,7 @@ import Payment from "../../../assets/lotti/payment2.json";
 import Enjoy from "../../../assets/lotti/enjoy food.json";
 const Service = () => {
     return (
+      /** here is service  Section Start  */
         <div className="w-full  bg-[#212428]  pt-24 px-5">
         <h2 className="text-4xl text-center font-semibold text-teal-500">
           Our Service
@@ -29,6 +30,7 @@ const Service = () => {
           </div>
         </div>
       </div>
+        /** here is service  Section end  */
     );
 };
 

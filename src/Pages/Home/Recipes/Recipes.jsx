@@ -8,6 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 const Recipes = ({ rp }) => {
   const [like, setLike] = useState(false);
   const { name, picture, ingredients, method, rating } = rp;
+  /** here is handelbutton to show a toast */
   const handelButton = () => {
     toast.success("Your Food Added Favorite List");
     setLike(true);
@@ -16,6 +17,7 @@ const Recipes = ({ rp }) => {
     window.scrollTo(0, 0)
   }, [])
   return (
+    /** here is recipes  Section Start  */
     <div className="border border-[#212428] shadow-2xl rounded-2xl p-5 space-y-3 flex flex-col justify-between">
       <div>
         <img className="w-full h-96 rounded-2xl" src={picture} alt="" />

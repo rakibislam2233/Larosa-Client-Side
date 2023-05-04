@@ -5,9 +5,10 @@ const Blogs = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+   /** this is a react to pdf ref */
   const ref = React.createRef();
   return (
-    <>
+     /** Blogs Section Start  */
       <div className="w-full pt-24">
       <div className="w-full h-full text-black flex justify-center">
     <Pdf targetRef={ref} filename="code-example.pdf">
@@ -92,7 +93,7 @@ const Blogs = () => {
           </div>
         </div>
       </div>
-    </>
+     /** Blogs  Section End */
   );
 };
 

@@ -5,6 +5,7 @@ const Contact = () => {
     window.scrollTo(0, 0)
   }, [])
   return (
+      /** here is contact  Section Start  */
     <div className="w-full bg-[#212428] pt-24 p-5">
       <h2 className="text-4xl text-center font-semibold text-teal-500 py-10">Contact Us</h2>
       <div className="w-full max-w-6xl mx-auto grid md:grid-cols-2 gap-5">
@@ -67,6 +68,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
+    /** contact Section End */
   );
 };
 

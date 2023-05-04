@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { UserContext } from "../../Context/AuthProvider/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
 import GridLoader from "react-spinners/GridLoader";
+ /** here is privet route  Start  */
 const PrivetRoute = ({ children }) => {
   const { user, loading } = useContext(UserContext);
   const location = useLocation();
@@ -20,5 +21,6 @@ const PrivetRoute = ({ children }) => {
   }
   return <Navigate to={"/login"} state={{ from: location }}></Navigate>;
 };
+/** here is privet route end  */
 
 export default PrivetRoute;

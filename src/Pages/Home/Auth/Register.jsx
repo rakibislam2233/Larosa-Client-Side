@@ -43,6 +43,7 @@ const Register = () => {
         setError(err.message)
       });
   };
+    /** here is a updateUser Information. user display name and photourl update  */
   const updateUserInfo = (user, name, photoUrl) => {
     updateProfile(user, {
       displayName: name,
@@ -52,6 +53,7 @@ const Register = () => {
       .catch((err) => {setError(err.message)});
   };
   return (
+      /** Register Section Start  */
     <div className="w-full  pt-20  flex justify-center py-20">
       <div className="w-full lg:w-[30%] bg-gray-200 mt-4 pb-5 rounded">
         <h2 className="text-3xl font-semibold text-center py-5">
@@ -170,6 +172,7 @@ const Register = () => {
         </form>
       </div>
     </div>
+     /** Register Section End  */
   );
 };
 

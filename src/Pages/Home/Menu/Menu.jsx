@@ -4,6 +4,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 const Menu = () => {
   const [datas, setData] = useState([]);
   const [loading,setLoading] = useState(true);
+   /** this is useEffect . when user click menu link then data fetching  */
   useEffect(() => {
     fetch("https://bengali-chef-server-site-rakibislam2233.vercel.app/menu")
       .then((res) => res.json())
@@ -11,6 +12,7 @@ const Menu = () => {
   }, []);
   return (
    <>
+   {/* this is a menu section*/}
    {
     loading ?  <div className="w-full bg-[#212428] h-screen flex justify-center items-center"><BeatLoader
     color={"#10B981"}
@@ -27,6 +29,7 @@ const Menu = () => {
     </div>
   </div>
    }
+   {/*menu section end*/}
    </>
   );
 };
