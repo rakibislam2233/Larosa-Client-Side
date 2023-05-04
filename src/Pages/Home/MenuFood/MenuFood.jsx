@@ -3,7 +3,6 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import LazyLoad from "react-lazy-load";
 const MenuFood = ({ dt }) => {
-  console.log(dt);
   const { name, picture, rating, price } = dt;
   return (
       <div className="w-full h-full relative ">

@@ -5,8 +5,6 @@ import GridLoader from "react-spinners/GridLoader";
 const PrivetRoute = ({ children }) => {
   const { user, loading } = useContext(UserContext);
   const location = useLocation();
-  console.log(loading);
-  console.log(location);
   if (loading) {
     return <div className="w-full h-[100vh] bg-[#212428] flex justify-center items-center"><h3 className="text-6xl"><GridLoader
     color={"#10B981"}

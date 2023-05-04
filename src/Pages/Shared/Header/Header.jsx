@@ -7,7 +7,7 @@ import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 const Header = () => {
   const { user, logOut } = useContext(UserContext);
-  console.log(user?.photoURL);
+  console.log(user);
   const [show, setShow] = useState(false);
   const handelLogout = () => {
     logOut()
@@ -74,7 +74,7 @@ const Header = () => {
           >
             Sign up
           </NavLink>
-          {user ? (
+          { user ? (
             <>
               {user.photoURL ? (
                 <img

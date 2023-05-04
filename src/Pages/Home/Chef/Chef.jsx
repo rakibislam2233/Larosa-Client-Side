@@ -8,7 +8,6 @@ const Chef = () => {
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
-  console.log(datas);
   return (
     <div className="w-full bg-[#212428] pt-24  py-5">
       <h3 className="text-4xl text-center font-semibold text-teal-500 ">

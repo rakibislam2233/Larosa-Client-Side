@@ -6,8 +6,7 @@ import { FaUser } from "react-icons/fa";
 import { updateProfile } from "firebase/auth";
 import { UserContext } from "../../../Context/AuthProvider/AuthProvider";
 const Register = () => {
-  const { createUser, googleSignIn, githubSignIn } = useContext(UserContext);
-  console.log(googleSignIn);
+  const { createUser} = useContext(UserContext);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const naviget = useNavigate();
@@ -34,7 +33,6 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const users = result.user;
-        console.log(users);
         updateUserInfo(users, name, photoUrl);
         toast.success("Your Register Successfully");
         naviget("/");
@@ -42,32 +40,13 @@ const Register = () => {
       })
       .catch(() => {});
   };
-  const signInGoogle = () => {
-    googleSignIn()
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        naviget("/");
-      })
-      .catch(() => {});
-  };
-  const gitHubLogin = () => {
-    githubSignIn()
-      .then((result) => {
-        const users = result.user;
-        console.log(users);
-        naviget(from, { replace: true });
-      })
-      .catch((err) => {});
-  };
   const updateUserInfo = (user, name, photoUrl) => {
-    console.log(user);
     updateProfile(user, {
       displayName: name,
       photoURL: photoUrl,
     })
       .then(() => {})
-      .catch((err) => {});
+      .catch(() => {});
   };
   return (
     <div className="w-full  pt-20  flex justify-center p-5">
@@ -184,27 +163,7 @@ const Register = () => {
               </Link>
             </h2>
           </div>
-          <div className="text-center flex justify-center items-center gap-3">
-            <div className="w-full h-0.5 bg-slate-600"></div>
-            <h2 className="font-semibold">or</h2>
-            <div className="w-full h-0.5  bg-slate-600"></div>
-          </div>
-          <div className="space-y-3">
-            <div
-              onClick={signInGoogle}
-              className="w-full py-2 px-5 bg-teal-500  flex items-center gap-2  cursor-pointer justify-center rounded-full font-semibold"
-            >
-              <BsGoogle className="w-6 h-6 text-white"></BsGoogle> Continue with
-              Google
-            </div>
-            <div
-              onClick={gitHubLogin}
-              className="w-full py-2 px-5 bg-amber-500  flex items-center gap-2  justify-center rounded-full cursor-pointer font-semibold"
-            >
-              <BsGithub className="w-6 h-6 text-white"></BsGithub> Continue with
-              Github
-            </div>
-          </div>
+
         </form>
       </div>
     </div>

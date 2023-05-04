@@ -12,7 +12,7 @@ const About = () => {
         </div>
         <div className="md:md:w-[50%] space-y-3">
           <h1 className="text-5xl text-white">Our philosophy</h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-400">
             Welcome to the wonderful world of beets! I am delighted you are
             here. A lot of people ask me, "Why beets?" in which I respond with a
             cheeky grin, "'Beets' Me!" Actually, beets intrigue me as I think
