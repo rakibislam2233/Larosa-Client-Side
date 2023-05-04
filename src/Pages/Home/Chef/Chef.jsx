@@ -4,7 +4,7 @@ import ChefDetails from "../ChefDetails/ChefDetails";
 const Chef = () => {
   const [datas, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/")
+    fetch("https://bengali-chef-server-site-rakibislam2233.vercel.app/")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

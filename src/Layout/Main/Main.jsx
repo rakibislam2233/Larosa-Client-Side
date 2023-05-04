@@ -21,6 +21,7 @@ const Main = () => {
             <Outlet></Outlet>
             <Footer></Footer>
             <Toaster />
+            
           </div>
         }
     </div>

@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         {
           path:'/chefDetails/:id',
           element:<PrivetRoute><SingleChef></SingleChef></PrivetRoute>,
-          loader:({params}) => fetch(`http://localhost:5000/chefDetails/${params.id}`)
+          loader:({params}) => fetch(`https://bengali-chef-server-site-rakibislam2233.vercel.app/chefDetails/${params.id}`)
         }
       ]
     },

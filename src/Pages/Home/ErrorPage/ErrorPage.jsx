@@ -15,8 +15,11 @@ const ErrorPage = () => {
             </div>
            
            </div>
-           <div>
-               <Link to='/'>  <button className='py-2 px-5 bg-teal-500 rounded-full font-semibold'>Go To Home Page</button></Link>
+           <div className='flex justify-center'>
+           <div >
+           <h4 className='text-3xl font-semibold  text-[#93ADBE] pb-5'>Page Not Found</h4>
+               <Link to='/'>  <button className='py-2 ml-8 px-5 bg-teal-500 rounded-full font-semibold'>Go To Home Page</button></Link>
+           </div>
             </div>
         </div>
         <Footer></Footer>

@@ -1,8 +1,5 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-
-import banner1 from "../../../assets/images/Banner/banner1.jpg";
-import banner2 from "../../../assets/images/Banner/banner2.jpg";
 import banner3 from "../../../assets/images/Banner/banner3.jpg";
 import banner4 from "../../../assets/images/Banner/banner4.jpg";
 import banner5 from "../../../assets/images/Banner/banner5.jpg";
@@ -52,7 +49,7 @@ const Banner = () => {
         <div className="keen-slider__slide number-slide1">
           <div
             style={{
-              backgroundImage: `url("${banner1}")`,
+              backgroundImage: `url("https://i.ibb.co/R0bv0fG/banner1.jpg")`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
@@ -73,12 +70,12 @@ const Banner = () => {
 
           <div
             style={{
-              backgroundImage: `url("${banner2}")`,
+              backgroundImage: `url("https://i.ibb.co/BwyhN8v/banner2.jpg")`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
             }}
-            className={`bg-rose-700  w-full h-screen`}
+            className={`bg-[#212428]   w-full h-screen`}
           >
             <div className="w-full max-w-6xl mx-auto h-full flex items-center p-5">
           <div className="space-y-4">
@@ -93,12 +90,12 @@ const Banner = () => {
 
           <div
             style={{
-              backgroundImage: `url("${banner3}")`,
+              backgroundImage: `url("https://i.ibb.co/D8hx7GZ/banner3.jpg")`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
             }}
-            className={`bg-rose-700  w-full h-screen`}
+            className={`bg-[#212428]   w-full h-screen`}
           >
              <div className="w-full max-w-6xl mx-auto h-full flex items-center p-5">
           <div className="space-y-4">
@@ -113,12 +110,12 @@ const Banner = () => {
 
           <div
             style={{
-              backgroundImage: `url("${banner4}")`,
+              backgroundImage: `url("https://i.ibb.co/59KGn0x/banner4.jpg")`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
             }}
-            className={`bg-rose-700  w-full h-screen`}
+            className={`bg-[#212428]   w-full h-screen`}
           >
              <div className="w-full max-w-6xl mx-auto h-full flex items-center p-5">
           <div className="space-y-4">
@@ -133,12 +130,12 @@ const Banner = () => {
 
           <div
             style={{
-              backgroundImage: `url("${banner5}")`,
+              backgroundImage: `url("https://i.ibb.co/gtv9xbr/banner5.jpg")`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
             }}
-            className={`bg-rose-700  w-full h-screen`}
+            className={`bg-[#212428]   w-full h-screen`}
           >
              <div className="w-full max-w-6xl mx-auto h-full flex items-center p-5">
           <div className="space-y-4">
@@ -153,12 +150,12 @@ const Banner = () => {
 
           <div
             style={{
-              backgroundImage: `url("${banner7}")`,
+              backgroundImage: `url("https://i.ibb.co/kh6NBgX/banner7.jpg")`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
             }}
-            className={`bg-rose-700  w-full h-screen`}
+            className={`bg-[#212428]  w-full h-screen`}
           >
              <div className="w-full max-w-6xl mx-auto h-full flex items-center p-5">
           <div className="space-y-4">

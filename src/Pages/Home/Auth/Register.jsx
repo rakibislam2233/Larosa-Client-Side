@@ -52,7 +52,7 @@ const Register = () => {
       .catch((err) => {setError(err.message)});
   };
   return (
-    <div className="w-full  pt-20  flex justify-center p-5">
+    <div className="w-full  pt-20  flex justify-center py-20">
       <div className="w-full lg:w-[30%] bg-gray-200 mt-4 pb-5 rounded">
         <h2 className="text-3xl font-semibold text-center py-5">
           Create an account
