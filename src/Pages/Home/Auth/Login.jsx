@@ -65,7 +65,7 @@ const Login = () => {
   };
   return (
      /** Login section start */
-    <div className="w-full  pt-20 flex justify-center p-20">
+    <div className="w-full  flex justify-center py-20 px-5">
       <div className="w-full lg:w-[30%] bg-gray-200 pb-5 mt-4 rounded">
         <h2 className="text-3xl font-semibold text-center py-5">
           Please Login
