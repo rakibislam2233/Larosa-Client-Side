@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Contact = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="w-full bg-[#212428] pt-24 p-5">
       <h2 className="text-4xl text-center font-semibold text-teal-500 py-10">Contact Us</h2>

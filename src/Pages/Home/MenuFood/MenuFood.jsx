@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import LazyLoad from "react-lazy-load";
 const MenuFood = ({ dt }) => {
   const { name, picture, rating, price } = dt;
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
       <div className="w-full h-full relative ">
         <LazyLoad>

@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LazyLoad from "react-lazy-load";
 import { Link } from "react-router-dom";
 const ChefDetails = ({ data }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   const { id, name, picture, years_of_experience, num_recipes, likes } = data;
   return (
     <div className="w-full h-full py-5  rounded-xl shadow-2xl space-y-2 text-gray-400">

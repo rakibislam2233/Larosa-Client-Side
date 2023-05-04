@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import images from "../../../assets/images/chef/download.png";
 const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="w-full bg-[#212428]  pt-24 px-5">
       <h2 className="text-4xl text-center font-semibold text-teal-500">

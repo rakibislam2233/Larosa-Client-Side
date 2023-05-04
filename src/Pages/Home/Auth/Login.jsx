@@ -32,7 +32,9 @@ const Login = () => {
         toast.success("Loging Successfully");
         from.reset();
       })
-      .catch(() => {});
+      .catch((err) => {
+        setError(err.message);
+      });
   };
   const googleLogin = () => {
     googleSignIn()
@@ -41,7 +43,9 @@ const Login = () => {
         console.log(users);
         naviget(from, { replace: true });
       })
-      .catch(() => {});
+      .catch((err) => {
+        setError(err.message);
+      });
   };
   const gitHubLogin = () => {
     githubSignIn()
@@ -50,7 +54,9 @@ const Login = () => {
         console.log(users);
         naviget(from, { replace: true });
       })
-      .catch(() => {});
+      .catch((err) => {
+        setError(err.message);
+      });
   };
   return (
     <div className="w-full  pt-20 flex justify-center p-5">
@@ -74,7 +80,7 @@ const Login = () => {
                   d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <h3>{error}</h3>
+              <h2>{error}</h2>
             </div>
           </div>
         ) : (

@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Blogs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="w-full pt-24 bg-[#212428]">
       <div className="w-full max-w-6xl mx-auto grid md:grid-cols-2 gap-5 py-10">

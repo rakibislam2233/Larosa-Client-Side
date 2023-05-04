@@ -6,7 +6,7 @@ import { FaUser } from "react-icons/fa";
 import { updateProfile } from "firebase/auth";
 import { UserContext } from "../../../Context/AuthProvider/AuthProvider";
 const Register = () => {
-  const { createUser} = useContext(UserContext);
+  const { createUser, logOut} = useContext(UserContext);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const naviget = useNavigate();
@@ -35,10 +35,13 @@ const Register = () => {
         const users = result.user;
         updateUserInfo(users, name, photoUrl);
         toast.success("Your Register Successfully");
-        naviget("/");
+        naviget("/login");
+        logOut()
         form.reset();
       })
-      .catch(() => {});
+      .catch((err) => {
+        setError(err.message)
+      });
   };
   const updateUserInfo = (user, name, photoUrl) => {
     updateProfile(user, {
@@ -46,7 +49,7 @@ const Register = () => {
       photoURL: photoUrl,
     })
       .then(() => {})
-      .catch(() => {});
+      .catch((err) => {setError(err.message)});
   };
   return (
     <div className="w-full  pt-20  flex justify-center p-5">

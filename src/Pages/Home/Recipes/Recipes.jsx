@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { MdOutlineFavorite } from "react-icons/md";
 import { Rating } from "@smastrom/react-rating";
@@ -13,6 +13,9 @@ const Recipes = ({ rp }) => {
     toast.success("Your Food Added Favorite List");
     setLike(true);
   };
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="border border-[#212428] shadow-2xl rounded-2xl p-5 space-y-3 flex flex-col justify-between">
       <div>
