@@ -49,7 +49,7 @@ const Banner = () => {
         <div className="keen-slider__slide number-slide1">
           <div
             style={{
-              backgroundImage: `url("https://i.ibb.co/R0bv0fG/banner1.jpg")`,
+              backgroundImage: `url("https://i.postimg.cc/G2LJJk9M/banner1.jpg")`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
@@ -70,7 +70,7 @@ const Banner = () => {
 
           <div
             style={{
-              backgroundImage: `url("https://i.ibb.co/BwyhN8v/banner2.jpg")`,
+              backgroundImage: `url("https://i.postimg.cc/MHSr1cVt/banner2.jpg")`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
@@ -90,7 +90,7 @@ const Banner = () => {
 
           <div
             style={{
-              backgroundImage: `url("https://i.ibb.co/D8hx7GZ/banner3.jpg")`,
+              backgroundImage: `url("https://i.postimg.cc/MTqtPC3m/banner3.jpg")`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
@@ -110,7 +110,7 @@ const Banner = () => {
 
           <div
             style={{
-              backgroundImage: `url("https://i.ibb.co/59KGn0x/banner4.jpg")`,
+              backgroundImage: `url("https://i.postimg.cc/Yq2dkB34/banner4.jpg")`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
@@ -130,7 +130,7 @@ const Banner = () => {
 
           <div
             style={{
-              backgroundImage: `url("https://i.ibb.co/gtv9xbr/banner5.jpg")`,
+              backgroundImage: `url("https://i.postimg.cc/mg5X8p7P/banner5.jpg")`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
@@ -150,7 +150,7 @@ const Banner = () => {
 
           <div
             style={{
-              backgroundImage: `url("https://i.ibb.co/kh6NBgX/banner7.jpg")`,
+              backgroundImage: `url("https://i.postimg.cc/J4h5vcrZ/banner7.jpg")`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
