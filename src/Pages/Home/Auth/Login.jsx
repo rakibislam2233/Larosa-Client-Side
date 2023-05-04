@@ -8,7 +8,7 @@ const Login = () => {
   const { signIn, googleSignIn, githubSignIn } = useContext(UserContext);
   console.log(githubSignIn);
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
     /** here is a useLocation. it is a reat hook   */
   const location = useLocation();
     /** here is a useNavigate . it is a reat hook  */
@@ -17,10 +17,10 @@ const Login = () => {
    /** here is a handellogin function */
   const handelLogin = (e) => {
     e.preventDefault();
+    setError("");
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    setError("");
     console.log(email, password);
     if (email == "") {
       return setError("Please enter your email");
@@ -30,10 +30,10 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const users = result.user;
-        console.log(users);
-        naviget(from, { replace: true });
-        toast.success("Loging Successfully");
+        setError("");
         from.reset();
+        toast.success("Loging Successfully");
+        naviget(from, { replace: true });
       })
       .catch((err) => {
         setError(err.message)
@@ -70,7 +70,7 @@ const Login = () => {
         <h2 className="text-3xl font-semibold text-center py-5">
           Please Login
         </h2>
-        {error ? (
+        {error && (
           <div className="alert alert-error shadow-lg my-2">
             <div>
               <svg
@@ -89,8 +89,6 @@ const Login = () => {
               <h2>{error}</h2>
             </div>
           </div>
-        ) : (
-          ""
         )}
         <form onSubmit={handelLogin} className="w-4/5 mx-auto relative">
           <div className="flex items-center bg-white rounded mb-4 relative">
@@ -108,6 +106,7 @@ const Login = () => {
               type="email"
               name="email"
               placeholder="Enter Your Email"
+              required
             />
           </div>
           <div className="flex items-center bg-white rounded  mb-4 relative">
@@ -125,6 +124,7 @@ const Login = () => {
               type={`${showPassword ? "text" : "password"}`}
               name="password"
               placeholder="Password"
+              required
             />
           </div>
 
