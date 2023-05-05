@@ -31,9 +31,9 @@ const Login = () => {
       .then((result) => {
         const users = result.user;
         setError("");
-        from.reset();
-        toast.success("Loging Successfully");
+        form.reset();
         naviget(from, { replace: true });
+        toast.success("Loging Successfully");
       })
       .catch((err) => {
         setError(err.message)
