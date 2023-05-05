@@ -10,22 +10,18 @@ const AuthProvider = ({children}) => {
     const GitHubprovider = new GithubAuthProvider();
     /**This is a create user function  */
     const createUser = (email,password)=>{
-        setLoading(true);
         return createUserWithEmailAndPassword(auth,email,password)
     }
      /**This is a login function  */
     const signIn = (email,password)=>{
-        setLoading(true);
         return signInWithEmailAndPassword(auth,email,password)
     }
      /**This is a google singin in  function  */
     const googleSignIn = ()=>{
-        setLoading(true);
        return signInWithPopup(auth,Googleprovider)
     }
     /**This is a github singin in  function  */
     const githubSignIn = ()=>{
-        setLoading(true);
         return signInWithPopup(auth,GitHubprovider)
     }
 
